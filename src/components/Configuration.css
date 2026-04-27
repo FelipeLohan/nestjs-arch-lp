@@ -1,0 +1,150 @@
+.cfg {
+  border-top: 1px solid var(--border);
+}
+
+/* Header */
+.cfg__header {
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.cfg__title   { margin: 0; }
+
+.cfg__subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.cfg__inline-code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  color: var(--indigo-light);
+  background: var(--indigo-dim);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* Body: table + example stacked */
+.cfg__body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Table wrapper for horizontal scroll on mobile */
+.cfg__table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.cfg__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+/* Header row */
+.cfg__table thead tr {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.cfg__table th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Body rows */
+.cfg__table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.cfg__table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.cfg__table tbody tr:hover {
+  background: var(--bg-surface);
+}
+
+.cfg__table td {
+  padding: 14px 20px;
+  vertical-align: top;
+  color: var(--text);
+}
+
+/* Option name */
+.cfg__opt-name {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--indigo-light);
+  background: var(--indigo-dim);
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* Type */
+.cfg__type {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: #67e8f9;   /* cyan — matches type-name token */
+}
+
+/* Default */
+.cfg__default {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: #86efac;   /* green — matches string token */
+}
+
+/* Description cell — allow wrapping */
+.cfg__desc {
+  white-space: normal;
+  color: var(--text-muted);
+  line-height: 1.6;
+  min-width: 220px;
+}
+
+/* Example block */
+.cfg__example {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cfg__example-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .cfg__header {
+    margin-bottom: 36px;
+  }
+
+  .cfg__table th,
+  .cfg__table td {
+    padding: 10px 14px;
+  }
+}
