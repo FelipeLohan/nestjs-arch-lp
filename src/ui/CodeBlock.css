@@ -1,0 +1,71 @@
+.code-block {
+  background: #0d0d16;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+/* Header bar */
+.code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.code-block__lang {
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.code-block__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.code-block__copy:hover {
+  color: var(--text-head);
+  border-color: var(--border-strong);
+}
+
+/* Code area */
+.code-block__pre {
+  margin: 0;
+  padding: 18px 20px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.code-block__pre code {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ── Token colours ──────────────────────────────────────────── */
+.token--comment   { color: #4b5563; font-style: italic; }
+.token--string    { color: #86efac; }   /* green */
+.token--decorator { color: #f59e0b; }   /* amber */
+.token--keyword   { color: #818cf8; }   /* indigo */
+.token--type-name { color: #67e8f9; }   /* cyan */
+.token--number    { color: #fb923c; }   /* orange */
+.token--property  { color: #9ca3af; }   /* muted */
+.token--plain     { color: #e2e8f0; }   /* near-white */
