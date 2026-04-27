@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# nestjs-arch-lp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page for [nestjs-arch-explorer](https://github.com/FelipeLohan/nestjs-architecture-explorer) — a plug-and-play NestJS library that renders an interactive architecture graph dashboard at `/arch`.
 
-Currently, two official plugins are available:
+## Tech stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript**
+- **Vite 8** (dev server + build)
+- Plain **CSS** with custom properties — no CSS framework
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
+pnpm dev        # http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm build      # type-check + production build → dist/
+pnpm preview    # preview the production build locally
 ```
+
+## Project structure
+
+```
+src/
+├── components/
+│   ├── Navbar.tsx / .css         # sticky header — logo, npm badge, GitHub
+│   ├── Hero.tsx / .css           # tagline, CTAs, install snippet
+│   ├── GraphMock.tsx             # animated SVG graph (used inside Hero)
+│   ├── Features.tsx / .css       # 3×2 feature cards
+│   ├── QuickStart.tsx / .css     # 3-step timeline with code blocks
+│   ├── HowItWorks.tsx / .css     # internals steps + node colour legend
+│   ├── Configuration.tsx / .css  # options table + example snippet
+│   └── Footer.tsx / .css         # tagline, MIT, author, links
+├── ui/
+│   └── CodeBlock.tsx / .css      # syntax-highlighted code block, copy button
+├── hooks/
+│   └── useInView.ts              # IntersectionObserver — scroll animations
+├── index.css                     # design tokens, reset, global utilities
+├── App.tsx
+└── main.tsx
+public/
+├── Logo.svg                      # official project logo (navbar + favicon)
+└── favicon.svg                   # browser tab icon (legacy, unused)
+```
+
+## Design tokens
+
+All colours, spacing, and typography are defined as CSS custom properties in `src/index.css`.
+
+| Token | Value | Usage |
+|---|---|---|
+| `--indigo` | `#6366f1` | Primary buttons, borders, badges |
+| `--indigo-light` | `#818cf8` | Text accents, icon colours, hover |
+| `--emerald` | `#10b981` | Controller nodes, feature icons |
+| `--amber` | `#f59e0b` | Provider nodes, decorator highlights |
+| `--bg-deep` | `#09090f` | Page background |
+| `--bg-surface` | `#111118` | Section alternating background |
+| `--bg-card` | `#16161f` | Cards, code blocks |
+
+## Animations
+
+Scroll-triggered animations use a lightweight `useInView` hook (`src/hooks/useInView.ts`) backed by `IntersectionObserver`. All motion is gated behind `@media (prefers-reduced-motion: no-preference)` — users with reduced motion see content immediately without any transitions.
+
+## Related
+
+- **nestjs-arch-explorer** — [GitHub](https://github.com/FelipeLohan/nestjs-architecture-explorer) · [npm](https://www.npmjs.com/package/nestjs-arch-explorer)
+
+## License
+
+MIT © [FelipeLohan](https://github.com/FelipeLohan)
