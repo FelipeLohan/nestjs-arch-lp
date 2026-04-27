@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { GraphMock } from './GraphMock'
 import './Hero.css'
 
 const GITHUB_URL = 'https://github.com/FelipeLohan/nestjs-architecture-explorer'
@@ -69,7 +68,11 @@ export function Hero() {
         </div>
 
         <div className="hero__visual animate-fade-in animate-delay-2">
-          <GraphMock />
+          <img
+            src="/architecture.png"
+            alt="nestjs-arch-explorer dashboard — interactive architecture graph showing modules, controllers and providers"
+            className="hero__screenshot"
+          />
         </div>
 
       </div>
