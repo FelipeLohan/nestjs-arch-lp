@@ -14,7 +14,7 @@ export function Footer() {
 
         <div className="footer__meta">
           <div className="footer__brand">
-            <img src="/favicon.svg" alt="" width="16" height="16" className="footer__logo" />
+            <img src="/Logo.svg" alt="" width="16" height="16" className="footer__logo" />
             <span>nestjs-arch-explorer</span>
           </div>
 

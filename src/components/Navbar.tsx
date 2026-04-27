@@ -9,7 +9,7 @@ export function Navbar() {
       <div className="container navbar__inner">
         <a href="/" className="navbar__brand" aria-label="nestjs-arch-explorer home">
           <img
-            src="/favicon.svg"
+            src="/Logo.svg"
             alt=""
             width="22"
             height="22"
